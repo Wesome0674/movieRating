@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/home.css" />
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="app-container">
+      <nav>
+        <div style="width: 100%">
+          <div class="search">
+            <div class="search-child">
+              <img src="/assets/img/svg/Search.svg" alt="" />
+              <input type="text" placeholder="Rechercher" />
+            </div>
+            <div class="search-child">
+              <img src="/assets/img/svg/Close.svg" alt="" />
+              <img src="/assets/img/svg/Filter.svg" alt="" />
+            </div>
+          </div>
+        </div>
+        <ul>
+          <li id="categorie-badge" class="body-font-500 underline">
+            All Movies
+          </li>
+          <li id="categorie-badge" class="body-font-400">Musical</li>
+          <li id="categorie-badge" i class="body-font-400">Néo contemporain</li>
+          <li id="categorie-badge" class="body-font-400">Horreur</li>
+          <li id="categorie-badge" class="body-font-400">Anime</li>
+          <li id="categorie-badge" class="body-font-400">Science Fiction</li>
+          <li id="categorie-badge" class="body-font-400">Plus de catégories</li>
+        </ul>
+        <div style="width: 100%; display: flex; justify-content: flex-end">
+          <button class="main-button">
+            <p class="body-font-500">Modifié Films Ou Catégories</p>
+            <img src="/assets/img/svg/pen.svg" alt="" />
+          </button>
+        </div>
+      </nav>
+      <div class="movie-container">
+        <div class="gradient"></div>
+        <img id="video-home" src="/assets/img/png/videoHome.webp" alt="" />
+        <div class="action-button">
+          <div class="infos">
+            <div class="top-info">
+              <p id="movie-categorie" class="body-font-600 underline">
+                Science Fiction
+              </p>
+              <div class="rate">
+                <p class="body-font-500" id="likes">16</p>
+                <img src="/assets/img/svg/like.svg" alt="" />
+              </div>
+            </div>
+            <div class="separator"></div>
+            <h1 class="headline1" id="movie-title">
+              Breaking Bad: <br />
+              Saison 4
+            </h1>
+          </div>
+          <div class="play-button">
+            <img src="/assets/img/svg/play.svg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="movies-slider swiper">
+        <div class="card-container swiper-wrapper" id="wrapper">
+
+        </div>
+        <div class="buttons-swiper">
+            <div class="swiper-button-prev slider-button">
+              <img src="/assets/img/svg/leftChevron.svg" alt="" />
+            </div>
+            <div class="swiper-button-next slider-button">
+                <img src="/assets/img/svg/rightChevron.svg" alt="" />
+              </div>
+          </div>
+        </div>
+    </div>
+    <script src="/scripts/index.js"></script>
+    <script src="scripts/slider.js"></script>
+  </body>
+</html>
