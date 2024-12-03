@@ -141,7 +141,7 @@ table {
   --white-300: #e0e0e0;
   --grey: #424242;
   --green: #00ac1c;
-  --grey-grandiant: linear-gradient(180deg, #111 34%, rgba(17, 17, 17, 0.5) 100%);
+  --grey-grandiant: linear-gradient(180deg, #111 34%, rgba(17, 17, 17, 0) 100%);
   --poppins-font: "Poppins", serif;
   --america-font: "American Captain Patrius 02 FRE";
 }
@@ -181,6 +181,7 @@ table {
   line-height: 70px;
   letter-spacing: -0.56px;
   color: white;
+  max-width: 500px;
 }
 
 .main-button {

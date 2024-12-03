@@ -11,6 +11,11 @@
     <title>Home</title>
   </head>
   <body>
+    <div class="edit" id="editModal">
+      <div class="edit-container">
+        <img id="close-modal" src="/assets/img/svg/Close.svg" alt="" />
+      </div>
+    </div>
     <div class="app-container">
       <nav>
         <div style="width: 100%">
@@ -26,18 +31,14 @@
           </div>
         </div>
         <ul>
-          <li id="categorie-badge" class="body-font-500 underline">
-            All Movies
-          </li>
-          <li id="categorie-badge" class="body-font-400">Musical</li>
-          <li id="categorie-badge" i class="body-font-400">Néo contemporain</li>
-          <li id="categorie-badge" class="body-font-400">Horreur</li>
-          <li id="categorie-badge" class="body-font-400">Anime</li>
-          <li id="categorie-badge" class="body-font-400">Science Fiction</li>
+          <div
+            id="categorie-container"
+            style="display: flex; align-items: center; gap: 39px"
+          ></div>
           <li id="categorie-badge" class="body-font-400">Plus de catégories</li>
         </ul>
         <div style="width: 100%; display: flex; justify-content: flex-end">
-          <button class="main-button">
+          <button class="main-button" id="edit-button">
             <p class="body-font-500">Modifié Films Ou Catégories</p>
             <img src="/assets/img/svg/pen.svg" alt="" />
           </button>
@@ -45,44 +46,54 @@
       </nav>
       <div class="movie-container">
         <div class="gradient"></div>
-        <img id="video-home" src="/assets/img/png/videoHome.webp" alt="" />
+        <div class="video-home">
+          <img src="/assets/img/svg/Close.svg" alt="" class="closeButton" />
+          <iframe
+            id="video-header"
+            src=""
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </div>
         <div class="action-button">
           <div class="infos">
             <div class="top-info">
-              <p id="movie-categorie" class="body-font-600 underline">
-                Science Fiction
-              </p>
-              <div class="rate">
-                <p class="body-font-500" id="likes">16</p>
+              <p id="movie-categorie" class="body-font-600 underline"></p>
+              <p id="author" class="body-font-500"></p>
+              <div class="rate" style="cursor: pointer">
+                <p class="body-font-500" id="likes"></p>
                 <img src="/assets/img/svg/like.svg" alt="" />
+                <p style="color: white" class="body-font-400">
+                  (<span id="ratio"></span>%)
+                </p>
+              </div>
+              <div class="rate"  style="cursor: pointer">
+                <p class="body-font-500" id="dislikes"></p>
+                <img src="/assets/img/svg/dislike.svg" alt="" />
               </div>
             </div>
             <div class="separator"></div>
-            <h1 class="headline1" id="movie-title">
-              Breaking Bad: <br />
-              Saison 4
-            </h1>
+            <h1 class="headline1" id="movie-title"></h1>
+            <p id="description" class="description body-font-400"></p>
           </div>
-          <div class="play-button">
+          <div class="play-button" id="play-button">
             <img src="/assets/img/svg/play.svg" alt="" />
           </div>
         </div>
         <div class="movies-slider swiper">
-          <div class="card-container swiper-wrapper" id="wrapper">
-  
+          <div class="card-container swiper-wrapper" id="wrapper"></div>
+
+          <div class="swiper-button-prev slider-button">
+            <img src="/assets/img/svg/leftChevron.svg" alt="" />
           </div>
-          <div class="buttons-swiper">
-              <div class="swiper-button-prev slider-button">
-                <img src="/assets/img/svg/leftChevron.svg" alt="" />
-              </div>
-              <div class="swiper-button-next slider-button">
-                  <img src="/assets/img/svg/rightChevron.svg" alt="" />
-                </div>
-            </div>
+          <div class="swiper-button-next slider-button">
+            <img src="/assets/img/svg/rightChevron.svg" alt="" />
           </div>
+        </div>
       </div>
     </div>
     <script src="/scripts/index.js"></script>
-    <script src="scripts/slider.js"></script>
   </body>
 </html>
