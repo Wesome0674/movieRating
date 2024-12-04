@@ -1,4 +1,5 @@
-let filmsCard = [];
+
+let filmsCard = []; // tableau qui stocke les donnée des films
 let wrapper = document.getElementById("wrapper");
 let videoHeader = document.getElementById("video-header");
 let numberOfLikes = document.getElementById("likes");
@@ -107,7 +108,7 @@ axios
   .get("https://europe-west3-gobelins-9079b.cloudfunctions.net/api/v1/movies")
   .then(function (response) {
     const res = response.data;
-
+  
     res.forEach((element) => {
       filmsCard.push({
         img: element.img,
@@ -118,9 +119,11 @@ axios
         description: element.description,
         categorieId: element.category,
         author: element.author,
+        id: element.id,
       });
     });
 
+    localStorage.setItem("films", JSON.stringify(filmsCard))
     let categoryIds = filmsCard.map((film) => film.categorieId);
 
     axios
@@ -131,6 +134,8 @@ axios
       )
       .then(function (categoryResponse) {
         let categories = categoryResponse.data;
+
+        localStorage.setItem("categories", JSON.stringify(categories))
 
         categories.forEach((category) => {
           categoryMap[category.id] = category.name;

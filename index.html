@@ -14,6 +14,98 @@
     <div class="edit" id="editModal">
       <div class="edit-container">
         <img id="close-modal" src="/assets/img/svg/Close.svg" alt="" />
+        <form action="" id="addfilmForm">
+          <input
+            type="text"
+            name="movieName"
+            placeholder="nom du film"
+            required
+          />
+          <input
+            type="text"
+            name="movieAuthor"
+            placeholder="nom de l'auteur"
+            required
+          />
+          <input
+            type="url"
+            name="urlAffiche"
+            placeholder="url de l'affiche"
+            required
+          />
+          <input
+            type="url"
+            name="urlVideo"
+            placeholder="url du trailer"
+            required
+          />
+          <textarea name="descriptionInput" id=""></textarea>
+
+          <select name="catergorieInput" id="catergorieInput"></select>
+          <button class="main-button" type="submit">
+            <p class="body-font-500">Ajouter</p>
+          </button>
+        </form>
+        <form action="" id="addCategoryForm">
+          <input
+            type="text"
+            name="categorieAdded"
+            placeholder="nom de la catégorie"
+            required
+          />
+          <p class="body-font-500" id="added"></p>
+          <button class="main-button" type="submit">
+            <p class="body-font-500">Ajouter</p>
+          </button>
+        </form>
+        <form action="" id="deleteFilmForm">
+          <select name="movieInput" id="movieInput"></select>
+          <button class="main-button" type="submit">
+            <p class="body-font-500">Supprimer</p>
+          </button>
+        </form>
+        <form action="" id="editMovieForm">
+          <select name="movieInputEdit" id="movieInputEdit"></select>
+          <input
+            type="text"
+            name="movieNameEdit"
+            id="editName"
+            placeholder="nom du film"
+            required
+          />
+          <input
+            type="text"
+            name="movieAuthorEdit"
+            placeholder="nom de l'auteur"
+            id="editAuthor"
+            required
+          />
+          <input
+            type="url"
+            name="urlAfficheEdit"
+            placeholder="url de l'affiche"
+            id="editUrl"
+            required
+          />
+          <input
+            type="url"
+            name="urlVideoEdit"
+            placeholder="url du trailer"
+            id="editVideo"
+            required
+          />
+          <select name="editcat" id="editcat"></select>
+          <textarea name="descriptionInputEdit" id="editDesc"></textarea>
+          <button class="main-button" type="submit">
+            <p class="body-font-500">Mettre a jour</p>
+          </button>
+        </form>
+        <form action="" id="DeleteCategory">
+          <select name="deleteCatInput" id="deleteCatInput"></select>
+          <button class="main-button" type="submit">
+            <p class="body-font-500">suprimmer</p>
+          </button>
+        </form>
       </div>
     </div>
     <div class="app-container">
@@ -39,7 +131,7 @@
         </ul>
         <div style="width: 100%; display: flex; justify-content: flex-end">
           <button class="main-button" id="edit-button">
-            <p class="body-font-500">Modifié Films Ou Catégories</p>
+            <p class="body-font-500">Modifié les Catégories</p>
             <img src="/assets/img/svg/pen.svg" alt="" />
           </button>
         </div>
@@ -69,10 +161,15 @@
                   (<span id="ratio"></span>%)
                 </p>
               </div>
-              <div class="rate"  style="cursor: pointer">
+              <div class="rate" style="cursor: pointer">
                 <p class="body-font-500" id="dislikes"></p>
                 <img src="/assets/img/svg/dislike.svg" alt="" />
               </div>
+              <img
+                style="cursor: pointer"
+                src="/assets/img/svg/penEditFilm.svg"
+                alt=""
+              />
             </div>
             <div class="separator"></div>
             <h1 class="headline1" id="movie-title"></h1>
@@ -95,5 +192,10 @@
       </div>
     </div>
     <script src="/scripts/index.js"></script>
+    <script src="/scripts/addFilm.js"></script>
+    <script src="/scripts/addCategory.js"></script>
+    <script src="/scripts/deleteMovie.js"></script>
+    <script src="/scripts/editMovie.js"></script>
+    <script src="/scripts/deleteCategory.js"></script>
   </body>
 </html>
