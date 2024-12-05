@@ -1,5 +1,4 @@
-
-let filmsCard = []; // tableau qui stocke les donnée des films
+let filmsCard = []; // tableau qui stocke les données des films
 let wrapper = document.getElementById("wrapper");
 let videoHeader = document.getElementById("video-header");
 let numberOfLikes = document.getElementById("likes");
@@ -45,14 +44,13 @@ function initializeSwiper() {
 }
 
 function displayMovies(filmsToDisplay) {
+  // dfonction qui affiche les card contenant toute les infos
   wrapper.innerHTML = "";
 
   filmsToDisplay.forEach((film) => {
     let card = document.createElement("div");
-    card.classList.add("swiper-slide");
-    card.classList.add("card");
+    card.classList.add("swiper-slide", "card");
     card.style.backgroundImage = `url(${film.img})`;
-
     card.dataset.videoUrl = film.url;
     card.dataset.name = film.name;
     card.dataset.likes = film.likes;
@@ -63,20 +61,18 @@ function displayMovies(filmsToDisplay) {
     card.dataset.ratio = Math.floor(
       (film.likes / (film.likes + film.dislikes)) * 100
     );
-
+    
     wrapper.appendChild(card);
 
     card.addEventListener("click", () => {
       let videoUrl = card.dataset.videoUrl;
       videoHeader.src = `${videoUrl}&autoplay=1&loop=1&controls=0&rel=0`;
-
       numberOfLikes.textContent = card.dataset.likes;
       numberOfDisLikes.textContent = card.dataset.dislikes;
       description.textContent = card.dataset.description;
       movieName.textContent = card.dataset.name;
       movieAuthor.textContent = card.dataset.author;
       ratio.innerText = card.dataset.ratio;
-
       let categoryId = card.dataset.categorieId;
       movieCategory.textContent = categoryMap[categoryId];
     });
@@ -104,11 +100,12 @@ function displayMovies(filmsToDisplay) {
   }
 }
 
+// Charger les films et catégories via API
 axios
   .get("https://europe-west3-gobelins-9079b.cloudfunctions.net/api/v1/movies")
   .then(function (response) {
     const res = response.data;
-  
+
     res.forEach((element) => {
       filmsCard.push({
         img: element.img,
@@ -123,73 +120,67 @@ axios
       });
     });
 
-    localStorage.setItem("films", JSON.stringify(filmsCard))
+    localStorage.setItem("films", JSON.stringify(filmsCard));
+
     let categoryIds = filmsCard.map((film) => film.categorieId);
 
-    axios
-      .get(
-        `https://europe-west3-gobelins-9079b.cloudfunctions.net/api/v1/categories?ids=${categoryIds.join(
-          ","
-        )}`
-      )
-      .then(function (categoryResponse) {
-        let categories = categoryResponse.data;
+    return axios.get(
+      `https://europe-west3-gobelins-9079b.cloudfunctions.net/api/v1/categories?ids=${categoryIds.join(
+        ","
+      )}`
+    );
+  })
+  .then(function (categoryResponse) {
+    const categories = categoryResponse.data;
 
-        localStorage.setItem("categories", JSON.stringify(categories))
+    localStorage.setItem("categories", JSON.stringify(categories));
 
-        categories.forEach((category) => {
-          categoryMap[category.id] = category.name;
+    categories.forEach((category) => {
+      categoryMap[category.id] = category.name;
+    });
+
+    // Afficher les catégories
+    categories.slice(0, 6).forEach((category) => {
+      let cat = document.createElement("li");
+      cat.classList.add("body-font-400", "category-item");
+      cat.id = category.id;
+      cat.innerText = category.name;
+      categorieContainer.appendChild(cat);
+    });
+
+    let allMoviesItem = document.createElement("li");
+    allMoviesItem.classList.add("body-font-500", "category-item", "underline");
+    allMoviesItem.id = "all";
+    allMoviesItem.innerText = "All Movies";
+    categorieContainer.prepend(allMoviesItem);
+
+    // Afficher les films
+    displayMovies(filmsCard);
+
+    // Ajouter des événements aux catégories
+    document.querySelectorAll(".category-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        if (item.id === "all") {
+          movieCategory.textContent = "All Movies";
+          displayMovies(filmsCard);
+        } else {
+          movieCategory.textContent = item.innerText;
+          const filteredFilms = filmsCard.filter(
+            (film) => film.categorieId === item.id
+          );
+          displayMovies(filteredFilms);
+        }
+
+        document.querySelectorAll(".category-item").forEach((element) => {
+          element.classList.remove("underline");
         });
-        categories.slice(0, 6).forEach((category) => {
-          let cat = document.createElement("li");
-          cat.classList.add("body-font-400");
-          cat.classList.add("category-item");
-          cat.id = category.id;
-          cat.innerText = category.name;
-          categorieContainer.appendChild(cat);
-        });
-
-        let allMoviesItem = document.createElement("li");
-        allMoviesItem.classList.add(
-          "body-font-500",
-          "category-item",
-          "underline"
-        );
-        allMoviesItem.id = "all";
-        allMoviesItem.innerText = "All Movies";
-        categorieContainer.prepend(allMoviesItem);
-
-        displayMovies(filmsCard);
-
-        document.querySelectorAll(".category-item").forEach((item) => {
-          item.addEventListener("click", () => {
-            if (item.id === "all") {
-              movieCategory.textContent = "All Movies";
-              displayMovies(filmsCard);
-            } else {
-              movieCategory.textContent = item.innerText;
-              let selectedCategoryId = item.id;
-              let filteredFilms = filmsCard.filter(
-                (film) => film.categorieId === selectedCategoryId
-              );
-              displayMovies(filteredFilms);
-            }
-
-            document.querySelectorAll(".category-item").forEach((element) => {
-              element.classList.remove("underline");
-            });
-            item.classList.add("underline");
-          });
-        });
-      })
-      .catch(function (error) {
-        console.log("Erreur lors de la récupération des catégories:", error);
+        item.classList.add("underline");
       });
+    });
   })
   .catch(function (error) {
-    console.log("Erreur lors de la récupération des films:", error);
-  })
-  .finally(function () {});
+    console.log("Erreur lors de la récupération des données:", error);
+  });
 
 // Bouton play
 playButton.addEventListener("click", () => {
@@ -203,15 +194,18 @@ closeButton.addEventListener("click", () => {
   closeButton.classList.remove("showButton");
 });
 
-const editButton = document.getElementById("edit-button");
+// Bouton pour ouvrir/fermer le modal d'édition
+const editButton = document.querySelectorAll("#edit-button");
 let editModal = document.getElementById("editModal");
 let closeEdit = document.getElementById("close-modal");
 
-editButton.addEventListener("click", () => {
-  editModal.classList.add("editShow");
-});
+editButton.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    editModal.classList.add("editShow");
+  });
+})
+
 
 closeEdit.addEventListener("click", () => {
   editModal.classList.remove("editShow");
 });
-
