@@ -106,6 +106,19 @@
             <p class="body-font-500">suprimmer</p>
           </button>
         </form>
+        <form action="" id="editCategoriyForm">
+          <select name="editCatSelect" id="editCatSelect"></select>
+          <input
+            type="text"
+            name="catEdit"
+            placeholder="Nom de la catégorie"
+            id="catEdit"
+            required
+          />
+          <button class="main-button" type="submit">
+            <p class="body-font-500">Modifié</p>
+          </button>
+        </form>
       </div>
     </div>
     <div class="app-container">
@@ -127,7 +140,9 @@
             id="categorie-container"
             style="display: flex; align-items: center; gap: 39px"
           ></div>
-          <li id="categorie-badge" class="body-font-400 moreCat">Plus de catégories</li>
+          <li id="categorie-badge" class="body-font-400 moreCat">
+            Plus de catégories
+          </li>
         </ul>
         <div style="width: 100%; display: flex; justify-content: flex-end">
           <button class="main-button" id="edit-button">
@@ -197,11 +212,11 @@
                 <ul id="rateList">
                   <li id="mostLiked" class="body-font-500">
                     <p>Les plus aimer</p>
-                    <img src="/assets/img/svg/like.svg" alt="">
+                    <img src="/assets/img/svg/like.svg" alt="" />
                   </li>
                   <li id="mostDisliked" class="body-font-500">
                     <p>Les moins aimer</p>
-                    <img src="/assets/img/svg/dislike.svg" alt="">
+                    <img src="/assets/img/svg/dislike.svg" alt="" />
                   </li>
                 </ul>
               </div>
@@ -210,6 +225,7 @@
           <div class="backHome">
             <img src="/assets/img/svg/back-square.svg" alt="" />
             <p class="body-font-500">Retourner a l'accueil</p>
+            <p class="body-font-500"><span id="results">0</span> résultat(s)</p>
           </div>
           <div id="notFound">
             <p class="body-font-500">Aucun film ne correspond a la selection</p>
@@ -229,5 +245,6 @@
     <script src="/scripts/editMovie.js"></script>
     <script src="/scripts/deleteCategory.js"></script>
     <script src="/scripts/search-panel.js"></script>
+    <script src="/scripts/editCategory.js"></script>
   </body>
 </html>

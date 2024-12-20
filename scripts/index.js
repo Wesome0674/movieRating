@@ -61,7 +61,7 @@ function displayMovies(filmsToDisplay) {
     card.dataset.ratio = Math.floor(
       (film.likes / (film.likes + film.dislikes)) * 100
     );
-    
+
     wrapper.appendChild(card);
 
     card.addEventListener("click", () => {
@@ -203,8 +203,7 @@ editButton.forEach((btn) => {
   btn.addEventListener("click", () => {
     editModal.classList.add("editShow");
   });
-})
-
+});
 
 closeEdit.addEventListener("click", () => {
   editModal.classList.remove("editShow");

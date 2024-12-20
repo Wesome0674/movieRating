@@ -10,8 +10,9 @@ let sideContainer = document.querySelector(".sideSearch");
 let listOfCategories = document.getElementById("cactegoryList");
 let mostLiked = document.getElementById("mostLiked");
 let mostDisliked = document.getElementById("mostDisliked");
+let results = document.getElementById("results");
 let catOfMovies = [];
-let moreCat = document.querySelector(".moreCat")
+let moreCat = document.querySelector(".moreCat");
 
 let filmdataSearch = JSON.parse(localStorage.getItem("films")) || [];
 
@@ -59,6 +60,7 @@ searchForm.addEventListener("keyup", (e) => {
   );
 
   displayFilteredFilms(filteredFilms);
+  results.textContent = filteredFilms.length;
 });
 
 clearInput.addEventListener("click", () => {
@@ -78,9 +80,9 @@ filterInput.addEventListener("click", () => {
 });
 
 moreCat.addEventListener("click", () => {
-    searchPanel.style.display = "flex";
-    sideContainer.style.display = "block";
-})
+  searchPanel.style.display = "flex";
+  sideContainer.style.display = "block";
+});
 
 categorieArray.forEach((cat) => {
   let list = document.createElement("li");
@@ -95,6 +97,7 @@ categorieArray.forEach((cat) => {
       film.categorieId.includes(list.id)
     );
     displayFilteredFilms(filteredFilms);
+    results.textContent = filteredFilms.length;
   });
 });
 
@@ -103,6 +106,7 @@ mostLiked.addEventListener("click", () => {
     .sort((current, previous) => previous.likes - current.likes)
     .slice(0, 5);
   displayFilteredFilms(filteredFilms);
+  results.textContent = filteredFilms.length;
 });
 
 mostDisliked.addEventListener("click", () => {
@@ -110,4 +114,5 @@ mostDisliked.addEventListener("click", () => {
     .sort((current, previous) => current.likes - previous.likes)
     .slice(0, 5);
   displayFilteredFilms(filteredFilms);
+  results.textContent = filteredFilms.length;
 });
