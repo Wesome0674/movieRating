@@ -3,8 +3,6 @@ let selectorCatEdit = document.getElementById("editCatSelect");
 
 let catEdit = document.getElementById("catEdit");
 
-console.log(categorieArray);
-
 categorieArray.forEach((cat) => {
   let options = document.createElement("option");
   options.value = cat.id;
