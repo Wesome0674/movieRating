@@ -36,6 +36,13 @@ const displayFilteredFilms = (filteredFilms) => {
       img.id = film.categorieId;
       img.style.backgroundImage = `url(${film.img})`;
       container.appendChild(img);
+
+      img.addEventListener("click", () => {
+        updateMovieDetails(film);
+        searchPanel.style.display = "none";
+        notFound.style.display = "none";
+        sideContainer.style.display = "none";
+      });
     });
   }
 };
@@ -56,7 +63,8 @@ searchForm.addEventListener("keyup", (e) => {
   const filteredFilms = filmdataSearch.filter(
     (film) =>
       film.name.toLowerCase().includes(inputOfuser) ||
-      film.author.toLowerCase().includes(inputOfuser)
+      film.author.toLowerCase().includes(inputOfuser) ||
+      film.description.toLowerCase().includes(inputOfuser)
   );
 
   displayFilteredFilms(filteredFilms);

@@ -175,7 +175,7 @@ table {
 
 .headline1 {
   font-family: var(--america-font);
-  font-size: 56px;
+  font-size: clamp(30px, 2.9167vw, 56px);
   font-style: normal;
   font-weight: 400;
   line-height: 70px;
