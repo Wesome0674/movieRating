@@ -60,7 +60,7 @@
         </form>
         <form action="" id="deleteFilmForm">
           <select name="movieInput" id="movieInput"></select>
-          <button class="main-button" type="submit">
+          <button class="delete-button" type="submit">
             <p class="body-font-500">Supprimer</p>
           </button>
         </form>
@@ -102,7 +102,7 @@
         </form>
         <form action="" id="DeleteCategory">
           <select name="deleteCatInput" id="deleteCatInput"></select>
-          <button class="main-button" type="submit">
+          <button class="delete-button" type="submit">
             <p class="body-font-500">suprimmer</p>
           </button>
         </form>
@@ -123,7 +123,7 @@
     </div>
     <div class="app-container">
       <nav>
-        <div style="width: 100%">
+        <div class="search-container">
           <form id="search-input" class="search">
             <div class="search-child">
               <img src="/assets/img/svg/Search.svg" alt="" />
@@ -138,15 +138,14 @@
         <ul>
           <div
             id="categorie-container"
-            style="display: flex; align-items: center; gap: 39px"
           ></div>
           <li id="categorie-badge" class="body-font-400 moreCat">
-            Plus de catégories
+            Toutes de catégories
           </li>
         </ul>
-        <div style="width: 100%; display: flex; justify-content: flex-end">
+        <div class="button-container">
           <button class="main-button" id="edit-button">
-            <p class="body-font-500">Modifié les Catégories</p>
+            <p class="body-font-500">Parametre</p>
             <img src="/assets/img/svg/pen.svg" alt="" />
           </button>
         </div>
@@ -184,11 +183,6 @@
 
                 </div>
               </div>
-              <img
-                style="cursor: pointer"
-                src="/assets/img/svg/penEditFilm.svg"
-                alt=""
-              />
             </div>
             <div class="separator"></div>
             <h1 class="headline1" id="movie-title"></h1>
@@ -241,6 +235,7 @@
         </div>
       </div>
     </div>
+    <script src="/scripts/openModals.js"></script>
     <script src="/scripts/swiper.js"></script>
     <script src="/scripts/formatUrl.js"></script>
     <script src="/scripts/likeAMovie.js"></script>

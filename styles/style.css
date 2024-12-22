@@ -144,6 +144,7 @@ table {
   --grey-grandiant: linear-gradient(180deg, #111 34%, rgba(17, 17, 17, 0) 100%);
   --poppins-font: "Poppins", serif;
   --america-font: "American Captain Patrius 02 FRE";
+  --red: #FD2424;
 }
 
 .body-font-400 {
@@ -197,3 +198,15 @@ table {
   cursor: pointer;
 }
 
+.delete-button {
+  display: flex;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 7px;
+  background: var(--red);
+  color: white;
+  cursor: pointer;
+}

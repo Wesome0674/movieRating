@@ -17,19 +17,18 @@ function initializeSwiper() {
     },
     breakpoints: {
       320: {
-        slidesPerView: 1, // 1 carte pour les très petits écrans
+        slidesPerView: 2, 
         spaceBetween: 10,
       },
       480: {
-        slidesPerView: 2, // 2 cartes pour les petits écrans
-        spaceBetween: 20,
+        slidesPerView: 2, 
       },
       768: {
-        slidesPerView: 3, // 3 cartes pour les écrans moyens
+        slidesPerView: 3,
         spaceBetween: 25,
       },
       1024: {
-        slidesPerView: 5, // 5 cartes pour les grands écrans
+        slidesPerView: 5, 
         spaceBetween: 30,
       },
     },

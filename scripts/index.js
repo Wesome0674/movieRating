@@ -156,16 +156,14 @@ function loadFilms() {
     });
 }
 
-// Charger les films au chargement de la page
+
 document.addEventListener("DOMContentLoaded", loadFilms);
 
-// Bouton play
 playButton.addEventListener("click", () => {
   videoHome.classList.add("fullscreen");
   closeButton.classList.add("showButton");
 });
 
-// Bouton de fermeture
 closeButton.addEventListener("click", () => {
   videoHome.classList.remove("fullscreen");
   closeButton.classList.remove("showButton");
