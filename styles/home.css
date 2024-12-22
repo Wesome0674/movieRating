@@ -630,4 +630,7 @@ form select {
   #film-search-container {
     grid-template-columns: repeat(2, 1fr);
   }
+  .edit-container {
+    width: 100%;
+  }
 }

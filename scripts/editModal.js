@@ -1,9 +1,10 @@
 let openEditModal = document.querySelectorAll("#edit-button");
 let editModal = document.getElementById("editModal");
-let closeModal = document.getElementById("close-modal");
+let closeModal = document.querySelectorAll("#close-modal");
 let playButton = document.getElementById("play-button");
 let videoHome = document.querySelector(".video-home");
 let closeButton = document.querySelector(".closeButton");
+
 
 playButton.addEventListener("click", () => {
   videoHome.classList.add("fullscreen");
@@ -21,9 +22,10 @@ openEditModal.forEach((button) => {
     editModal.style.display = "block";
   });
 });
-
-closeModal.addEventListener("click", () => {
-  editModal.style.display = "none";
+closeModal.forEach((button) => {
+  button.addEventListener("click", () => {
+    editModal.style.display = "none";
+  });
 });
 
 document.addEventListener("DOMContentLoaded", function() {
