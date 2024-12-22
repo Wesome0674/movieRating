@@ -42,6 +42,11 @@ function createDislikeButton(film) {
         });
     } else {
       console.log("Already disliked");
+      messsageContainer.style.display = "block";
+      message.textContent = "Vous avez déjà Disliké ce film";
+      setTimeout(() => {
+        messsageContainer.style.display = "none";
+      }, 3000);
     }
   });
 

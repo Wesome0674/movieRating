@@ -13,115 +13,293 @@
   <body>
     <div class="edit" id="editModal">
       <div class="edit-container">
-        <img id="close-modal" src="/assets/img/svg/Close.svg" alt="" />
-        <form action="" id="addfilmForm">
-          <input
-            type="text"
-            name="movieName"
-            placeholder="nom du film"
-            required
-          />
-          <input
-            type="text"
-            name="movieAuthor"
-            placeholder="nom de l'auteur"
-            required
-          />
-          <input
-            type="url"
-            name="urlAffiche"
-            placeholder="url de l'affiche"
-            required
-          />
-          <input
-            type="url"
-            name="urlVideo"
-            placeholder="url du trailer"
-            required
-          />
-          <textarea name="descriptionInput" id=""></textarea>
+        <div class="edit-sidebar">
+          <ul class="body-font-500 edit-list">
+            <li class="body-font-500 active">
+              <a href="#tab1">Ajouter un film</a>
+            </li>
+            <li class="body-font-500">
+              <a href="#tab2">Ajouter une catégorie</a>
+            </li>
+            <li class="body-font-500"><a href="#tab3">Supprimer un film</a></li>
+            <li class="body-font-500"><a href="#tab4">Modifier un film</a></li>
+            <li class="body-font-500">
+              <a href="#tab5">Supprimer une catégorie</a>
+            </li>
+            <li class="body-font-500">
+              <a href="#tab6">Modifier une catégorie</a>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-content">
+          <div class="form-container tab active" id="tab1">
+            <div class="form-header">
+              <p id="edit-title">Ajouter un film</p>
+              <img id="close-modal" src="/assets/img/svg/Close.svg" alt="" />
+            </div>
+            <form action="" id="addfilmForm">
+              <div class="form-right">
+                <div class="form-rows">
+                  <div class="form-cols">
+                    <label for=""
+                      >Nom du film <span class="required-star">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="movieName"
+                      placeholder="nom du film"
+                      required
+                    />
+                  </div>
+                  <div class="form-cols">
+                    <label for=""
+                      >Auteur <span class="required-star">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="movieAuthor"
+                      placeholder="nom de l'auteur"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-rows">
+                  <div class="form-cols">
+                    <label for=""
+                      >url de l'affiche <span class="required-star">*</span>
+                    </label>
+                    <input
+                      type="url"
+                      name="urlAffiche"
+                      placeholder="url de l'affiche"
+                      required
+                    />
+                  </div>
+                  <div class="form-cols">
+                    <label for=""
+                      >url de la video <span class="required-star">*</span>
+                    </label>
+                    <input
+                      type="url"
+                      name="urlVideo"
+                      placeholder="url du trailer"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-rows">
+                  <div class="form-cols">
+                    <label for=""
+                      >Categorie <span class="required-star">*</span>
+                    </label>
+                    <select
+                      name="catergorieInput"
+                      id="catergorieInput"
+                    ></select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-left">
+                <div class="form-cols">
+                  <label for=""
+                    >Description du film (100 Max)
+                    <span class="required-star">*</span>
+                  </label>
+                  <textarea name="descriptionInput" id=""></textarea>
+                </div>
+                <p class="body-font-500" id="addedMovie"></p>
+                <button class="main-button" type="submit">
+                  <p class="body-font-500">Ajouter</p>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="form-container tab" id="tab2">
+            <div class="form-header">
+              <p id="edit-title">Ajouter une categorie</p>
+              <img id="close-modal" src="/assets/img/svg/Close.svg" alt="" />
+            </div>
+            <form action="" id="addCategoryForm">
+              <div class="form-cols">
+                <label for=""
+                  >Nom de la catégorie <span class="required-star">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="categorieAdded"
+                  placeholder="nom de la catégorie"
+                  required
+                />
+                <p class="body-font-500" id="added"></p>
+                <button class="main-button" type="submit">
+                  <p class="body-font-500">Ajouter</p>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="form-container tab" id="tab3">
+            <div class="form-header">
+              <p id="edit-title">Supprimer un film</p>
+              <img id="close-modal" src="/assets/img/svg/Close.svg" alt="" />
+            </div>
+            <form action="" id="deleteFilmForm">
+              <div class="form-cols">
+                <label for=""
+                  >Nom du film <span class="required-star">*</span>
+                </label>
+                <select name="movieInput" id="movieInput"></select>
+                <p class="body-font-500" id="deleteMovie"></p>
+                <button class="delete-button" type="submit">
+                  <p class="body-font-500">Supprimer</p>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="form-container tab" id="tab4">
+            <div class="form-header">
+              <p id="edit-title">Modifié un film</p>
+              <img id="close-modal" src="/assets/img/svg/Close.svg" alt="" />
+            </div>
+            <form action="" id="editMovieForm">
+              <div class="form-right">
+                <div class="form-rows">
+                  <div class="form-cols">
+                    <label for=""
+                      >selectionner un film <span class="required-star">*</span>
+                    </label>
+                    <select name="movieInputEdit" id="movieInputEdit"></select>
+                  </div>
+                  <div class="form-cols">
+                    <label for=""
+                      >Nom du film <span class="required-star">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="movieNameEdit"
+                      id="editName"
+                      placeholder="nom du film"
+                      required
+                    />
+                  </div>
+                </div>
 
-          <select name="catergorieInput" id="catergorieInput"></select>
-          <button class="main-button" type="submit">
-            <p class="body-font-500">Ajouter</p>
-          </button>
-        </form>
-        <form action="" id="addCategoryForm">
-          <input
-            type="text"
-            name="categorieAdded"
-            placeholder="nom de la catégorie"
-            required
-          />
-          <p class="body-font-500" id="added"></p>
-          <button class="main-button" type="submit">
-            <p class="body-font-500">Ajouter</p>
-          </button>
-        </form>
-        <form action="" id="deleteFilmForm">
-          <select name="movieInput" id="movieInput"></select>
-          <button class="delete-button" type="submit">
-            <p class="body-font-500">Supprimer</p>
-          </button>
-        </form>
-        <form action="" id="editMovieForm">
-          <select name="movieInputEdit" id="movieInputEdit"></select>
-          <input
-            type="text"
-            name="movieNameEdit"
-            id="editName"
-            placeholder="nom du film"
-            required
-          />
-          <input
-            type="text"
-            name="movieAuthorEdit"
-            placeholder="nom de l'auteur"
-            id="editAuthor"
-            required
-          />
-          <input
-            type="url"
-            name="urlAfficheEdit"
-            placeholder="url de l'affiche"
-            id="editUrl"
-            required
-          />
-          <input
-            type="url"
-            name="urlVideoEdit"
-            placeholder="url du trailer"
-            id="editVideo"
-            required
-          />
-          <select name="editcat" id="editcat"></select>
-          <textarea name="descriptionInputEdit" id="editDesc"></textarea>
-          <button class="main-button" type="submit">
-            <p class="body-font-500">Mettre a jour</p>
-          </button>
-        </form>
-        <form action="" id="DeleteCategory">
-          <select name="deleteCatInput" id="deleteCatInput"></select>
-          <button class="delete-button" type="submit">
-            <p class="body-font-500">suprimmer</p>
-          </button>
-        </form>
-        <form action="" id="editCategoriyForm">
-          <select name="editCatSelect" id="editCatSelect"></select>
-          <input
-            type="text"
-            name="catEdit"
-            placeholder="Nom de la catégorie"
-            id="catEdit"
-            required
-          />
-          <button class="main-button" type="submit">
-            <p class="body-font-500">Modifié</p>
-          </button>
-        </form>
+                <div class="form-rows">
+                  <div class="form-cols">
+                    <label for=""
+                      >Auteur <span class="required-star">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="movieAuthorEdit"
+                      placeholder="nom de l'auteur"
+                      id="editAuthor"
+                      required
+                    />
+                  </div>
+                  <div class="form-cols">
+                    <label for=""
+                      >url de l'affiche <span class="required-star">*</span>
+                    </label>
+                    <input
+                      type="url"
+                      name="urlAfficheEdit"
+                      placeholder="url de l'affiche"
+                      id="editUrl"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-rows">
+                  <div class="form-cols">
+                    <label for=""
+                      >url de la video <span class="required-star">*</span>
+                    </label>
+                    <input
+                      type="url"
+                      name="urlVideoEdit"
+                      placeholder="url du trailer"
+                      id="editVideo"
+                      required
+                    />
+                  </div>
+                  <div class="form-cols">
+                    <label for=""
+                      >Categorie <span class="required-star">*</span>
+                    </label>
+                    <select name="editcat" id="editcat"></select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-left">
+                <div style="width: 100%" class="form-cols">
+                  <label for=""
+                    >Description du film (100 Max)
+                    <span class="required-star">*</span>
+                  </label>
+                  <textarea
+                    name="descriptionInputEdit"
+                    id="editDesc"
+                  ></textarea>
+                </div>
+                <p class="body-font-500" id="updateMovie"></p>
+                <button class="main-button" type="submit">
+                  <p class="body-font-500">Mettre a jour</p>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="form-container tab" id="tab5">
+            <div class="form-header">
+              <p id="edit-title">Supprimer une catégorie</p>
+              <img id="close-modal" src="/assets/img/svg/Close.svg" alt="" />
+            </div>
+            <form action="" id="DeleteCategory">
+              <div class="form-cols">
+                <label for="deleteCatInput"
+                  >selectionner une catégorie
+                  <span class="required-star">*</span>
+                </label>
+                <select name="deleteCatInput" id="deleteCatInput"></select>
+                <p class="body-font-500" id="deleted"></p>
+                <button class="delete-button" type="submit">
+                  <p class="body-font-500">suprimmer</p>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="form-container tab" id="tab6">
+            <div class="form-header">
+              <p id="edit-title">Modifié une catégorie</p>
+              <img id="close-modal" src="/assets/img/svg/Close.svg" alt="" />
+            </div>
+            <form action="" id="editCategoriyForm">
+              <div class="form-cols"">
+                <label for="editCatSelect"
+                  >selectionner une catégorie
+                  <span class="required-star">*</span>
+                </label>
+                <select name="editCatSelect" id="editCatSelect"></select>
+                <input
+                  type="text"
+                  name="catEdit"
+                  placeholder="Nom de la catégorie"
+                  id="catEdit"
+                  required
+                />
+                <p class="body-font-500" id="updated"></p>
+                <button class="main-button" type="submit">
+                  <p class="body-font-500">Modifié</p>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     <div class="app-container">
+      <div class="message-container" style="position: absolute; top: 200px; right: 0px; color: white; background-color: var(--purple); padding: 10px 20px;">
+        <p id="message" class="body-font-500">test</p>
+      </div>
       <nav>
         <div class="search-container">
           <form id="search-input" class="search">
@@ -136,9 +314,7 @@
           </form>
         </div>
         <ul>
-          <div
-            id="categorie-container"
-          ></div>
+          <div id="categorie-container"></div>
           <li id="categorie-badge" class="body-font-400 moreCat">
             Toutes de catégories
           </li>
@@ -170,18 +346,14 @@
               <p id="author" class="body-font-500"></p>
               <div class="rate" style="cursor: pointer">
                 <p class="body-font-500" id="likes"></p>
-                <div id="likesButton">
-                  
-                </div>
+                <div id="likesButton"></div>
                 <p style="color: white" class="body-font-400">
                   (<span id="ratio"></span>%)
                 </p>
               </div>
               <div class="rate" style="cursor: pointer">
                 <p class="body-font-500" id="dislikes"></p>
-                <div id="dislikesButton">
-
-                </div>
+                <div id="dislikesButton"></div>
               </div>
             </div>
             <div class="separator"></div>
@@ -235,7 +407,7 @@
         </div>
       </div>
     </div>
-    <script src="/scripts/openModals.js"></script>
+    <script src="/scripts/editModal.js"></script>
     <script src="/scripts/swiper.js"></script>
     <script src="/scripts/formatUrl.js"></script>
     <script src="/scripts/likeAMovie.js"></script>

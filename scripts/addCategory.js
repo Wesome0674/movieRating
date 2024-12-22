@@ -17,13 +17,16 @@ addCategoryForm.addEventListener("submit", (e) => {
   if (catNameArray.includes(categorieAdded)) {
     alreadyAdded.innerHTML = "Catégorie deja ajouté";
   } else {
-    alreadyAdded.innerHTML = "Catégorie ajouté !";
+    alreadyAdded.innerHTML = "Catégorie ajouté ! Redirection en cours...";
     axios
       .post("https://europe-west3-gobelins-9079b.cloudfunctions.net/api/v1/categories", {
         name: categorieAdded,
       })
       .then(function (response) {
         console.log(response);
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 3000);
       })
       .catch(function (error) {
         console.log(error);

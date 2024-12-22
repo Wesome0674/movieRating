@@ -269,13 +269,13 @@ nav input:focus {
   position: absolute;
   top: 50%;
   left: 50%;
+  min-height: 60vh;
+
   transform: translate(-50%, -50%);
-  max-width: 1200px;
-  width: 100%;
-  height: 800px;
+  width: 80%;
   background-color: var(--bg-color);
-  display: grid;
-  place-content: center;
+  border-radius: 12px;
+  display: flex;
 }
 
 .edit {
@@ -289,7 +289,6 @@ nav input:focus {
 }
 
 .edit img {
-  position: absolute;
   top: 15px;
   left: 15px;
   width: 30px;
@@ -298,10 +297,6 @@ nav input:focus {
 
 .editShow {
   display: block;
-}
-
-#added {
-  color: var(--white-500);
 }
 
 .search-panel {
@@ -329,14 +324,17 @@ nav input:focus {
 #notFound {
   color: var(--white-500);
   position: absolute;
-  top: 40px;
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
   width: fit-content;
   display: flex;
   align-items: center;
+  text-align: center;
   gap: 15px;
   flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
 }
 
 #notFound > p {
@@ -349,6 +347,7 @@ nav input:focus {
   top: 10px;
   right: 15px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 15px;
   font-size: 24px;
@@ -382,7 +381,7 @@ nav input:focus {
 }
 
 .side-container {
-  padding: 20px 10px;
+  padding: 40px 10px;
 }
 
 .sidebarLists {
@@ -422,7 +421,6 @@ nav {
   background-color: transparent;
   font-size: 16px;
   border: 1px solid var(--grey);
-  width: fit-content;
   padding: 12px;
   border-radius: 7px;
   border: 1px solid var(--grey);
@@ -452,6 +450,130 @@ nav {
   letter-spacing: -0.16px;
 }
 
+.edit-list {
+  color: var(--white-500);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  cursor: pointer;
+}
+
+.edit-sidebar {
+  width: 250px;
+  padding: 15px;
+  border: 1px solid var(--white-500);
+  border-radius: 12px;
+}
+
+#edit-title {
+  color: var(--purple);
+  font-family: var(--poppins-font);
+  font-size: clamp(18px, 1.25vw, 24px);
+  font-weight: 600;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px;
+  border-bottom: 1px solid var(--white-500);
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px;
+}
+
+.form-right {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+textarea {
+  height: 120px;
+}
+.form-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+label {
+  font-family: var(--poppins-font);
+  font-size: 16px;
+  color: var(--white-500);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+}
+
+form select {
+  width: 100%;
+}
+
+.form-rows {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.form-cols {
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  gap: 5px;
+}
+.form-container,
+.tab-content {
+  width: 100%;
+}
+.required-star {
+  color: var(--red);
+}
+
+.tab {
+  display: none;
+}
+
+.tab.active {
+  display: block;
+}
+
+#deleteMovie,
+#addedMovie,
+#added,
+#updated,
+#updateMovie,
+#deleted {
+  color: var(--green);
+}
+
+.message-container .show {
+  animation: messageAppear 500ms ease-in;
+  display: block;
+}
+
+.message-container {
+  animation: messageAppear 500ms ease-in;
+  display: none;
+}
+
+@keyframes messageAppear {
+  0% {
+    transform: translateX(500px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 @media (max-width: 1333px) {
   #categorie-container {
     grid-template-columns: repeat(4, 1fr);
@@ -461,6 +583,9 @@ nav {
   .action-button {
     margin-top: 30px;
     margin-bottom: 50px;
+  }
+  #film-search-container {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -472,6 +597,9 @@ nav {
   }
   nav input {
     width: 100px;
+  }
+  #film-search-container {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -498,5 +626,8 @@ nav {
   .action-button {
     margin-top: 10px;
     margin-bottom: 50px;
+  }
+  #film-search-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

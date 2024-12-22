@@ -1,5 +1,6 @@
 const formEdit = document.getElementById("editMovieForm");
 let selectorFilmEdit = document.getElementById("movieInputEdit");
+let updateMovie = document.getElementById("updateMovie");
 
 let editName = document.getElementById("editName");
 let editAuthor = document.getElementById("editAuthor");
@@ -78,6 +79,10 @@ formEdit.addEventListener("submit", (e) => {
     )
     .then(function (response) {
       console.log("Film mis à jour avec succès", response.data);
+      updateMovie.innerHTML = "Film mis à jour avec succès, redirection en cours...";
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 3000);
     })
     .catch(function (error) {
       console.error("Erreur lors de la mise à jour du film", error);

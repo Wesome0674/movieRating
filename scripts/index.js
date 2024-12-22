@@ -10,11 +10,6 @@ let movieCategory = document.getElementById("movie-categorie");
 let ratio = document.getElementById("ratio");
 let categorieContainer = document.getElementById("categorie-container");
 
-let playButton = document.getElementById("play-button");
-let videoHome = document.querySelector(".video-home");
-let closeButton = document.querySelector(".closeButton");
-
-
 let categoryMap = {};
 
 function updateMovieDetails(film) {
@@ -63,7 +58,6 @@ function displayMovies(filmsToDisplay) {
 }
 
 function loadFilms() {
-  // Charger les films et catégories via API
   axios
     .get("https://europe-west3-gobelins-9079b.cloudfunctions.net/api/v1/movies")
     .then(function (response) {
@@ -108,7 +102,6 @@ function loadFilms() {
         categoryMap[category.id] = category.name;
       });
 
-      // Afficher les catégories
       categories.slice(0, 6).forEach((category) => {
         let cat = document.createElement("li");
         cat.classList.add("body-font-400", "category-item");
@@ -127,10 +120,8 @@ function loadFilms() {
       allMoviesItem.innerText = "All Movies";
       categorieContainer.prepend(allMoviesItem);
 
-      // Afficher les films
       displayMovies(filmsCard);
-
-      // Ajouter des événements aux catégories
+      
       document.querySelectorAll(".category-item").forEach((item) => {
         item.addEventListener("click", () => {
           if (item.id === "all") {
@@ -159,12 +150,3 @@ function loadFilms() {
 
 document.addEventListener("DOMContentLoaded", loadFilms);
 
-playButton.addEventListener("click", () => {
-  videoHome.classList.add("fullscreen");
-  closeButton.classList.add("showButton");
-});
-
-closeButton.addEventListener("click", () => {
-  videoHome.classList.remove("fullscreen");
-  closeButton.classList.remove("showButton");
-});

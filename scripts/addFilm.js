@@ -1,5 +1,6 @@
 const addFilmForm = document.getElementById("addfilmForm");
 const categorieArray = JSON.parse(localStorage.getItem("categories")) || [];
+let addedMovie = document.getElementById("addedMovie");
 
 let selector = document.getElementById("catergorieInput");
 
@@ -35,6 +36,10 @@ addFilmForm.addEventListener("submit", (e) => {
     )
     .then(function (response) {
       console.log(response);
+      addedMovie.innerHTML = "Film ajouté avec succès, redirection en cours...";
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 3000);
     })
     .catch(function (error) {
       console.log(error);

@@ -1,4 +1,6 @@
 let likesButton = document.getElementById("likesButton");
+let message = document.getElementById("message");
+let messsageContainer = document.querySelector(".message-container");
 
 function createLikeButton(film) {
   likesButton.innerHTML = "";
@@ -42,6 +44,11 @@ function createLikeButton(film) {
         });
     } else {
       console.log("Already liked");
+      messsageContainer.style.display = "block";
+      message.textContent = "Vous avez déjà liké ce film";
+      setTimeout(() => {
+        messsageContainer.style.display = "none";
+      }, 3000);
     }
   });
 

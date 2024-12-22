@@ -1,5 +1,6 @@
 const formCatEdit = document.getElementById("editCategoriyForm");
 let selectorCatEdit = document.getElementById("editCatSelect");
+let updated = document.getElementById("updated");
 
 let catEdit = document.getElementById("catEdit");
 
@@ -40,6 +41,10 @@ formCatEdit.addEventListener("submit", (e) => {
     )
     .then(function (response) {
       console.log("Film mis à jour avec succès", response.data);
+      updated.innerHTML = "Catégorie mise à jour avec succès, redirection en cours...";
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 3000);
     })
     .catch(function (error) {
       console.error("Erreur lors de la mise à jour du film", error);

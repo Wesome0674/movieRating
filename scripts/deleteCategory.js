@@ -1,5 +1,6 @@
 const deleteCatForm = document.getElementById("DeleteCategory");
 let selectCatToDelete = document.getElementById("deleteCatInput");
+let deleted = document.getElementById("deleted");
 
 let categoriesIdsOfMovies = [];
 
@@ -25,7 +26,7 @@ deleteCatForm.addEventListener("submit", (e) => {
   console.table(catergorieInput);
 
   if (categoriesIdsOfMovies.includes(catergorieInput)) {
-    console.log("cette catégorie contient des films.");
+    deleted.innerHTML = "Vous ne pouvez pas supprimer une catégorie qui contient des films";
   } else {
     console.log("c'est bon le rho");
     axios
@@ -34,6 +35,10 @@ deleteCatForm.addEventListener("submit", (e) => {
       )
       .then((response) => {
         console.log("Catégorie supprimé avec succès:", response.data);
+        deleted.innerHTML = "Catégorie supprimé avec succès, redirection en cours...";
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 3000);
       })
       .catch((error) => {
         console.error("Erreur lors de la suppression du film:", error);

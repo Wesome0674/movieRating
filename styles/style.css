@@ -145,6 +145,7 @@ table {
   --poppins-font: "Poppins", serif;
   --america-font: "American Captain Patrius 02 FRE";
   --red: #FD2424;
+  --purple: #4F2EDF;
 }
 
 .body-font-400 {
@@ -209,4 +210,9 @@ table {
   background: var(--red);
   color: white;
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: var(--white-500);
 }
